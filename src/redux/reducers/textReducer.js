@@ -1,7 +1,9 @@
 import ACTIONS from "./../actions";
-import { FORMAT } from "../../utilities/textFormat";
+import { getTextFormat } from "../../utilities/textFormat";
 
-const current = { text: "{}", format: FORMAT.JSON };
+const initialText = "<book><title>Harry Potter</title></book>";
+
+const current = { text: initialText, format: getTextFormat(initialText) };
 const initialState = { current, history: [], editor: current.text };
 
 export default function textReducer(state = initialState, action) {
@@ -11,6 +13,7 @@ export default function textReducer(state = initialState, action) {
       return {
         ...state,
         current: current,
+        editor: current.text,
         history: [current, ...state.history].slice(-10),
       };
     case ACTIONS.SET_EDITOR_TEXT:
@@ -18,6 +21,7 @@ export default function textReducer(state = initialState, action) {
         ...state,
         editor: action.text,
       };
+
     default:
       return state;
   }

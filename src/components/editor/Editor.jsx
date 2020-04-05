@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import Form from "styled-minimal/Form";
 
 function Editor({ dispatch, texts }) {
-  const [state, setState] = useState({ text: "{}" });
+  const [state, setState] = useState({ text: texts.editor });
 
   const handleClick = (e) => {
     dispatch(
@@ -22,11 +22,12 @@ function Editor({ dispatch, texts }) {
 
   return (
     <>
-      <Form onSubmit={handleClick}>
+      <Form onSubmit={handleClick} fontSize={0}>
         <Textarea
           onChange={handleChange}
           defaultValue={texts.editor}
           rows={20}
+          size="sm"
         ></Textarea>
         <Button onClick={handleClick}>Load Text</Button>
       </Form>
