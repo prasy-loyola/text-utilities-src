@@ -1,8 +1,7 @@
 import React from "react";
-import { Container } from "styled-minimal";
-import Paragraph from "styled-minimal/Paragraph";
 import Alert from "styled-minimal/Alert";
 import Box from "styled-minimal/Box";
+import Paragraph from "styled-minimal/Paragraph";
 
 function Homepage(props) {
   return (

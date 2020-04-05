@@ -1,9 +1,8 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
+import Box from "styled-minimal/Box";
 import "./App.css";
 import UtilitiesPage from "./components/utilitypage/UtilitiesPage";
-import Container from "styled-minimal/Container";
-import Box from "styled-minimal/Box";
 
 const theme = {
   button: {
