@@ -41,6 +41,7 @@ function JsonViewer({ text, showQuery }) {
             onDelete={() => true}
             name={false}
             collapsed={showQuery ? 3 : 1}
+            displayDataTypes={false}
           ></ReactJson>
         </Box>
         <Box mx={1}></Box>
@@ -53,6 +54,7 @@ function JsonViewer({ text, showQuery }) {
               onAdd={() => true}
               onDelete={() => true}
               name={false}
+              displayDataTypes={false}
             ></ReactJson>
           </Box>
         )}

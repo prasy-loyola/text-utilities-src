@@ -1,15 +1,17 @@
 import React, { useState } from "react";
-import XMLViewer from "react-xml-viewer";
 import Box from "styled-minimal/Box";
 import Flex from "styled-minimal/Flex";
 import Input from "styled-minimal/Input";
-import wgxpath from "wgxpath";
 import { DOMParser as dom } from "xmldom";
 import xpath from "xpath";
+import AceEditor from "react-ace";
+
+import "ace-builds/src-noconflict/mode-xml";
+import "ace-builds/src-noconflict/theme-monokai";
+import "ace-builds/src-noconflict/snippets/xml";
+// import "ace-builds/webpack-resolver";
 
 function XMLView({ text, showQuery }) {
-  wgxpath.install(window);
-
   const [state, setState] = useState({
     namespace: "",
     xpath: ".",
@@ -33,7 +35,7 @@ function XMLView({ text, showQuery }) {
       if (result.length === 0) {
         throw new Error("test");
       }
-      return result;
+      return result.map((s) => s.toString()).join("\n");
     }
 
     const result = select(
@@ -47,7 +49,7 @@ function XMLView({ text, showQuery }) {
     if (result.length === 0) {
       throw new Error("test");
     }
-    return result;
+    return result.map((s) => s.toString()).join("\n");
   };
 
   const setNamespace = (e) => {
@@ -88,12 +90,48 @@ function XMLView({ text, showQuery }) {
         </Flex>
       )}
       <Flex>
+        {/* onLoad={this.onLoad}
+onChange={this.onChange} */}
         <Box width={1 / (showQuery ? 2 : 1)}>
-          <XMLViewer xml={text} />
+          <AceEditor
+            placeholder="XML"
+            mode="xml"
+            theme="monokai"
+            name="blah2"
+            fontSize={14}
+            showPrintMargin={true}
+            showGutter={true}
+            highlightActiveLine={true}
+            value={text}
+            width={"100%"}
+            setOptions={{
+              showLineNumbers: true,
+              tabSize: 2,
+            }}
+          />
+
+          {/* <XMLViewer xml={text} />               //   onLoad={this.onLoad}
+              //   onChange={this.onChange} */}
         </Box>
         {showQuery && (
           <Box width={1 / 2}>
-            <XMLViewer xml={state.result + ""} />
+            <AceEditor
+              placeholder="XML"
+              mode="xml"
+              theme="monokai"
+              name="blah2"
+              fontSize={14}
+              showPrintMargin={true}
+              showGutter={true}
+              highlightActiveLine={true}
+              value={state.result + ""}
+              width={"100%"}
+              setOptions={{
+                showLineNumbers: true,
+                tabSize: 2,
+              }}
+            />
+            {/* <XMLViewer xml={state.result + ""} /> */}
           </Box>
         )}
       </Flex>
