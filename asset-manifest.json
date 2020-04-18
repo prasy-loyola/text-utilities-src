@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/text-utilities/static/css/main.5f361e03.chunk.css",
-    "main.js": "/text-utilities/static/js/main.5b9071ed.chunk.js",
-    "main.js.map": "/text-utilities/static/js/main.5b9071ed.chunk.js.map",
+    "main.js": "/text-utilities/static/js/main.5f8f0b18.chunk.js",
+    "main.js.map": "/text-utilities/static/js/main.5f8f0b18.chunk.js.map",
     "runtime-main.js": "/text-utilities/static/js/runtime-main.ab5bb608.js",
     "runtime-main.js.map": "/text-utilities/static/js/runtime-main.ab5bb608.js.map",
     "static/js/2.5765ff9d.chunk.js": "/text-utilities/static/js/2.5765ff9d.chunk.js",
@@ -424,7 +424,7 @@
     "theme-gruvbox.js": "/text-utilities/feff703ce532f20391dfed8199b6971e.js",
     "jsx.js": "/text-utilities/ff7acf7df3cdb56d704a5bd29f08fd55.js",
     "index.html": "/text-utilities/index.html",
-    "precache-manifest.28793a2866620e1edb7c02e9a433d7e2.js": "/text-utilities/precache-manifest.28793a2866620e1edb7c02e9a433d7e2.js",
+    "precache-manifest.18bc0a9903b2b5556b38171ef9784c56.js": "/text-utilities/precache-manifest.18bc0a9903b2b5556b38171ef9784c56.js",
     "service-worker.js": "/text-utilities/service-worker.js",
     "static/css/main.5f361e03.chunk.css.map": "/text-utilities/static/css/main.5f361e03.chunk.css.map",
     "static/js/2.5765ff9d.chunk.js.LICENSE.txt": "/text-utilities/static/js/2.5765ff9d.chunk.js.LICENSE.txt"
@@ -433,6 +433,6 @@
     "static/js/runtime-main.ab5bb608.js",
     "static/js/2.5765ff9d.chunk.js",
     "static/css/main.5f361e03.chunk.css",
-    "static/js/main.5b9071ed.chunk.js"
+    "static/js/main.5f8f0b18.chunk.js"
   ]
 }
