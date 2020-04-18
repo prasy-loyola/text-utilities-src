@@ -15,19 +15,23 @@ function Visualize({ dispatch, texts }) {
       <VisualizeView current={texts.current} showQuery></VisualizeView>
       <Box mt={50}></Box>
       <Text fontSize={2}>History</Text>
-      {texts.history.map((t, i) => (
-        <Flex key={i}>
-          <Button onClick={() => dispatch(setCurrentText(t))} size={"xs"}>
-            Load {i + 1}
-          </Button>{" "}
-          <VisualizeView current={t}></VisualizeView>{" "}
-        </Flex>
-      ))}
+      <Box style={{ display: "block" }}>
+        {texts.history.map((t, i) => (
+          <Flex key={i}>
+            <Button onClick={() => dispatch(setCurrentText(t))} size={"xs"}>
+              Load {i + 1}
+            </Button>{" "}
+            <VisualizeView current={t}></VisualizeView>{" "}
+          </Flex>
+        ))}
+      </Box>
     </>
   );
 }
 
 function VisualizeView({ current, showQuery }) {
+  console.log("VisualizeView -> showQuery", showQuery);
+  console.log("VisualizeView -> current", current);
   return (
     <Box alignSelf="left" alignItems="left" alignContent="0">
       {current.format === FORMAT.JSON && (

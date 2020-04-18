@@ -5,6 +5,17 @@ import Box from "styled-minimal/Box";
 import Flex from "styled-minimal/Flex";
 import Input from "styled-minimal/Input";
 
+const classes = {
+  jsonViewer: {
+    display: "block",
+    maxHeight: "80vh",
+    minHeight: "5vh",
+    overflow: "auto",
+
+    // height: "80vh",
+  },
+};
+
 function JsonViewer({ text, showQuery }) {
   const src = JSON.parse(text);
   const [state, setState] = useState({ query: "$", result: src });
@@ -24,15 +35,15 @@ function JsonViewer({ text, showQuery }) {
     <>
       {showQuery && (
         <Input
-          size={"xm"}
+          size={"sm"}
           defaultValue={state.query}
           onChange={handleChange}
           placeholder="query"
         ></Input>
       )}
 
-      <Flex>
-        <Box width={1 / (showQuery ? 2 : 1)}>
+      <Flex style={{ height: "90%" }}>
+        <Box width={1 / (showQuery ? 2 : 1)} style={classes.jsonViewer}>
           <ReactJson
             theme="monokai"
             src={src}
@@ -46,7 +57,7 @@ function JsonViewer({ text, showQuery }) {
         </Box>
         <Box mx={1}></Box>
         {showQuery && (
-          <Box width={1 / 2}>
+          <Box width={1 / 2} style={classes.jsonViewer}>
             <ReactJson
               theme="monokai"
               src={state.result}

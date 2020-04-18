@@ -1,10 +1,9 @@
 import ACTIONS from "./../actions";
 import { getTextFormat } from "../../utilities/textFormat";
-
-const initialText = "<book><title>Harry Potter</title></book>";
+import { initialText, history } from "./default";
 
 const current = { text: initialText, format: getTextFormat(initialText) };
-const initialState = { current, history: [], editor: current.text };
+const initialState = { current, history, editor: current.text };
 
 export default function textReducer(state = initialState, action) {
   switch (action.type) {

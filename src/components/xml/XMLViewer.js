@@ -9,9 +9,12 @@ import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-xml";
 import "ace-builds/src-noconflict/theme-monokai";
 import "ace-builds/src-noconflict/snippets/xml";
+import "ace-builds/webpack-resolver";
 // import "ace-builds/webpack-resolver";
 
 function XMLView({ text, showQuery }) {
+  console.log("XMLView -> showQuery", showQuery);
+  console.log("XMLView -> text", text);
   const [state, setState] = useState({
     namespace: "",
     xpath: ".",
@@ -90,9 +93,8 @@ function XMLView({ text, showQuery }) {
         </Flex>
       )}
       <Flex>
-        {/* onLoad={this.onLoad}
-onChange={this.onChange} */}
         <Box width={1 / (showQuery ? 2 : 1)}>
+          {/* <textarea>{text}</textarea> */}
           <AceEditor
             placeholder="XML"
             mode="xml"
@@ -104,6 +106,7 @@ onChange={this.onChange} */}
             highlightActiveLine={true}
             value={text}
             width={"100%"}
+            style={{ minWidth: "30vw" }}
             setOptions={{
               showLineNumbers: true,
               tabSize: 2,
