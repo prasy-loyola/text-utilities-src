@@ -5,7 +5,7 @@ import Textarea from "styled-minimal/Textarea";
 import Button from "styled-minimal/Button";
 import { connect } from "react-redux";
 import Form from "styled-minimal/Form";
-
+import AceEditor from "react-ace";
 function Editor({ dispatch, texts }) {
   const [state, setState] = useState({ text: texts.editor });
 
@@ -23,12 +23,31 @@ function Editor({ dispatch, texts }) {
   return (
     <>
       <Form onSubmit={handleClick} fontSize={0}>
-        <Textarea
+        <AceEditor
+          placeholder="XML"
+          // mode="xml"
+          theme="monokai"
+          name="blah2"
+          fontSize={14}
+          showPrintMargin={true}
+          onChange={handleChange}
+          showGutter={true}
+          highlightActiveLine={true}
+          value={texts.editor}
+          width={"100%"}
+          wrapEnabled={true}
+          style={{ minWidth: "30vw" }}
+          setOptions={{
+            showLineNumbers: true,
+            tabSize: 2,
+          }}
+        ></AceEditor>
+        {/* <Textarea
           onChange={handleChange}
           defaultValue={texts.editor}
           rows={20}
           size="sm"
-        ></Textarea>
+        ></Textarea> */}
         <Button onClick={handleClick}>Load Text</Button>
       </Form>
     </>

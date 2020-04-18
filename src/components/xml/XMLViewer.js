@@ -80,6 +80,10 @@ function XMLView({ text, showQuery }) {
     });
   };
 
+  const handleChange = (s) => {
+    console.log("handleChange -> s", s);
+  };
+
   return (
     <div>
       {showQuery && (
@@ -102,6 +106,7 @@ function XMLView({ text, showQuery }) {
             name="blah2"
             fontSize={14}
             showPrintMargin={true}
+            onChange={handleChange}
             showGutter={true}
             highlightActiveLine={true}
             value={text}
